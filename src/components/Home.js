@@ -1,46 +1,42 @@
 import React, { useState, useEffect } from 'react';
+
 // API
 import API from '../API';
+
 // Config
 import { POSTER_SIZE, BACKDROP_SIZE, IMAGE_BASE_URL } from '../config';
+
 // Components
+import HeroImage from './HeroImage';
+import Grid from './Grid';
 
 // Hook
+import { useHomeFetch } from '../Hooks/useHomeFetch';
 
 // Image
 import NoImage from '../images/no_image.jpg';
+import react from 'react';
 
 const Home = () => {
-  const [state, setState] = useState();
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+	const { state, loading, error } = useHomeFetch();
+	console.log(state);
 
-  const fetchMovies = async (page, searchTerm = '') => {
-    try {
-      setError(false);
-      setLoading(true);
-
-      const movies = await API.fetchMovies(searchTerm, page);
-
-      setState(prev => ({
-        ...movies,
-        results:
-          page > 1 ? [...prev.results, ...movies.results] : [...movies.results]
-      }));
-    } catch (error) {
-      setError(true);
-    }
-    setLoading(false);
-  };
-
-  // Initial render
-  useEffect(() => {
-    fetchMovies(1);
-  }, []);
-
-  console.log(state);
-
-  return <div>Home Page</div>;
+	return (
+		<React.Fragment>
+			{state.results[0] ? (
+				<HeroImage
+					image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${state.results[0].backdrop_path}`}
+					title={state.results[0].original_title}
+					text={state.results[0].overview}
+				/>
+			) : null}
+			<Grid header='Popular Movies'>
+				{state.results.map((movie) => (
+					<div key={movie.id}>{movie.title}</div>
+				))}
+			</Grid>
+		</React.Fragment>
+	);
 };
 
 export default Home;
