@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
 	background-size: 100%, cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	height: 700px;
+	height: 35rem;
 	position: relative;
 	animation: animateHeroImage 0.6s;
 
@@ -38,6 +38,15 @@ export const Text = styled.div`
 	margin-right: 20px;
 	min-height: 100px;
 	color: var(--white);
+	padding: 1rem;
+	border-radius: 1rem;
+	user-select: none;
+	background-color: rgb(0, 0, 0, 0.1);
+	transition: 0.5s;
+
+	:hover {
+		background-color: rgb(0, 0, 0, 0.8);
+	}
 
 	h1 {
 		font-size: var(--fontSuperBig);
@@ -55,8 +64,7 @@ export const Text = styled.div`
 		}
 	}
 
-	@media screen and (max-width: 720px){
+	@media screen and (max-width: 720px) {
 		max-width: 100%;
 	}
-	
 `;

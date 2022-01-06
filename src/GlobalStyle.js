@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
 	:root {
@@ -9,6 +9,7 @@ export const GlobalStyle = createGlobalStyle`
 		--darkGrey: #1c1c1c;
 		--fontSuperBig: 2.5rem;
 		--fontBig: 1.5rem;
+		--fontMed: 1.2rem;
 		--fontSmall: 1rem;
 	}
 
@@ -37,5 +38,4 @@ export const GlobalStyle = createGlobalStyle`
 			color: var(--white);
 		}
 	}
-
 `;

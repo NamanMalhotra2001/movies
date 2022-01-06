@@ -9,8 +9,7 @@ export const Content = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	/* max-width: var(--maxWidth); */
-	padding: 20px 0;
+	height: 5rem;
 	margin: 0 auto;
 `;
 
@@ -20,6 +19,11 @@ export const LogoImg = styled.img`
 	@media screen and (max-width: 500px) {
 		width: 150px;
 	}
+`;
+
+export const Right = styled.div`
+	display: flex;
+	align-items: center;
 `;
 
 export const TMDBLogoImg = styled.img`
